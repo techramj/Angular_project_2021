@@ -1,0 +1,33 @@
+<label>ServerName</label>
+<!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)"> -->
+<input type="text" class="form-control" [(ngModel)]="serverName">
+<br>
+<!-- <p>{{serverName}}</p> -->
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
+<!-- <p>{{allowNewServer}}</p> -->
+<!-- <p [innerText]="allowNewServer"></p> -->
+<p>{{serverCreationStatus}}</p>
+<hr>
+<app-server></app-server>
+<app-server></app-server>
+<hr>
+<input type="text" class="form-control" [(ngModel)]="username" (input)="onInputData($event)">
+<p>{{username}}</p>
+<button class="btn btn-primary" [disabled]="!buttonStatus" (click)="onInputClick()">Click</button>
+
+<h3>Another way</h3>
+
+<input type="text" class="form-control" [(ngModel)]="username">
+<button class="btn btn-primary" [disabled]="username ===''" (click)="username = ''">Click</button>
+<br>
+<hr>
+
+<button class="btn btn-primary" (click)="onDisplayButtonClick()">Display Details</button>
+<p *ngIf="logs.length%2==0">Displaying the logs</p>
+<div [ngStyle]="{backgroundColor:i>=5?'blue':'transparent'}" *ngFor="let item of logs; let i=index" [ngClass]="{'white-text' : i>=5}">
+    {{item}}
+</div>
+
+<hr>
+<br>
+<br>
